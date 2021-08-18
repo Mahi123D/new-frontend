@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-12">
+                    <h3>Add Profile</h3>
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-2 col-md-2">
+                    <label>First Name</label>
+                </div>
+                <div class="col-10 col-md-10">
+                    <input type="text" class="form-control" [(ngModel)]="profile.firstname" (keypress)="omit_special_char($event)">
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-2 col-md-2">
+                    <label>Email</label>
+                </div>
+                <div class="col-10 col-md-10">
+                    <input type="email" class="form-control" [(ngModel)]="profile.email">
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-2 col-md-2">
+                    <label>Phone No</label>
+                </div>
+                <div class="col-10 col-md-10">
+                    <input type="text" class="form-control" [(ngModel)]="profile.phone" (keypress)="numberOnly($event)" maxlength="10">
+                </div>
+            </div>
+
+            <div class="row pb-2" *ngIf="error">
+                <div class="col-12" >
+                    <label style="color: red;">
+                        {{error}}
+                    </label>
+                </div>
+            </div>
+            <div class="row pb-2">
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
